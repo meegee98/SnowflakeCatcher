@@ -1,15 +1,33 @@
-Snowflake[]catcher;
+Snowflake[] snow;
 void setup()
 {
-  size(300, 300)/;//your code here
+  size(300, 300);
+  snow= new Snowflake[300];
+  for(int i=0; i<snow.length; i++)
+  {
+    snow[i]= new Snowflake();
+  }
+  //your code here
 }
 void draw()
 {
+  background(0, 255, 255);
+  for(int i=0; i<snow.length; i++)
+  {
+    snow[i].erase();
+    snow[i].lookDown();
+    snow[i].move();
+    snow[i].wrap();
+    snow[i].show();
+  }
+  mouseDragged();
   //your code here
 }
 void mouseDragged()
 {
-  //your code here
+  fill(0,0,255);
+  ellipse(mouseX, mouseY, 10, 10);
+    //your code here
 }
 
 class Snowflake
@@ -19,17 +37,17 @@ class Snowflake
   Snowflake()
   {
     x=(int)(Math.random()*300);
-    y=(int)(Math.random()300*);
+    y=(int)(Math.random()*300);
     isMoving=true;//class member variable initializations
   }
   void show()
   {
-    fill(255)l;
+    fill(255);
     ellipse(x, y, 5, 5);//your code here
   }
   void lookDown()
   {
-    if(y>=0 && y<=300 && (get(x, y) != color(0))
+    if(y>=0 && y<=300 && (get(x, y) != color(0)))
     {
       isMoving=false;
     }
@@ -54,7 +72,7 @@ class Snowflake
   {
     if(y>310)
     {
-      y=0;
+      y=-10;
       x=(int)(Math.random()*300);
     }//your code here
   }
