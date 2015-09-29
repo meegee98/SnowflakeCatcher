@@ -12,7 +12,7 @@ void setup()
 }
 void draw()
 {
-  
+  stroke(0);
   for(int i=0; i<snow.length; i++)
   {
     snow[i].erase();
@@ -52,7 +52,7 @@ class Snowflake
   }
   void lookDown()
   {
-    if(y>=0 && y<=300 && (get(x, y+3) != color(0)))
+    if(y>=0 && y<=300 && (get(x, y+5) != color(0)))
     {
       isMoving=false;
     }
@@ -64,7 +64,7 @@ class Snowflake
   void erase()
   {
     fill(0);
-    ellipse(x, y, 7, 7);//your code here
+    ellipse(x, y, 8, 8);//your code here
   }
   void move()
   {
@@ -75,7 +75,7 @@ class Snowflake
   }
   void wrap()
   {
-    if(y>295)
+    if(y>294)
     {
       y=-10;
       x=(int)(Math.random()*300);
