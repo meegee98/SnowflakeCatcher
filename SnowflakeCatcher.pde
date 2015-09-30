@@ -52,7 +52,7 @@ class Snowflake
   }
   void lookDown()
   {
-    if(y>=0 && y<=300 && (get(x, y+5) != color(0)))
+    if(y>=0 && y<=300 && (get(x+5, y+5) != color(0)))
     {
       isMoving=false;
     }
@@ -63,8 +63,8 @@ class Snowflake
   }
   void erase()
   {
-    fill(0);
-    ellipse(x, y, 8, 8);//your code here
+    fill(0, 255, 255);
+    ellipse(x, y, 7, 7);//your code here
   }
   void move()
   {
@@ -75,7 +75,7 @@ class Snowflake
   }
   void wrap()
   {
-    if(y>294)
+    if(y>290)
     {
       y=-10;
       x=(int)(Math.random()*300);
