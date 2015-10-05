@@ -1,3 +1,6 @@
+int myColorR= (int)(Math.random()*255);
+int myColorG= (int)(Math.random()*255);
+int myColorB= (int)(Math.random()*255);
 Snowflake[] snow;
 void setup()
 {
@@ -20,6 +23,7 @@ void draw()
     snow[i].move();
     snow[i].wrap();
     snow[i].show();
+   
   }
   //mouseDragged();
   //your code here
@@ -31,9 +35,9 @@ void mouseDragged()
   //fill(0,0,255);
   //line(mouseX, mouseY, 10, 10);
   
-  fill(255, 0,0);
+  fill(myColorR, myColorG, myColorB);
   //stroke(255, 0, 0);
-  ellipse(mouseX, mouseY, 20, 10);
+  rect(mouseX, mouseY, 20, 10);
 }
 class Snowflake
 {
@@ -47,14 +51,14 @@ class Snowflake
   }
   void show()
   {
-    fill(255);
+    fill(myColorR, myColorG, myColorB);
     ellipse(x, y, 5, 5);//your code here
   }
   void lookDown()
   {
     if(y>=0 && y<=300)
     {
-     if((get(x+4, y+4) != color(0)))
+     if((get(x+2, y+4) != color(0)) || (get(x-2, y+4) != color(0)))
     //&& (get(x, y) != color(0, 255, 255))) 
     {
       isMoving=false;
@@ -67,8 +71,8 @@ class Snowflake
 }
   void erase()
   {
-    //fill(0, 255, 255);
     fill(0);
+    //fill(myColorR, myColorG, myColorB);
     ellipse(x, y, 7, 7);//your code here
   }
   void move()
@@ -86,7 +90,7 @@ class Snowflake
       x=(int)(Math.random()*300);
     }//your code here
   }
-}
 
+}
 
 
